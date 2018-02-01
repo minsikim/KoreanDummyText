@@ -24,6 +24,16 @@
           <h4>폰트 디자인 중 디자인이 완료된 문자만을 사용하여 구성된 단어를 추출하기 위해 만들어진 한글 랜덤 텍스트 추출기이다. 추출된 문장은 무의미하다.</h4>
           <h6>예: '가나다라마바사아자차카타파하'입력 -> '나라 가자 타라 가하다 나가라하다... '생성</h6>
           <div class="input-group">
+            <div class="dropdown">
+              <button type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+              <ul aria-labelledby="dropdownMenu1" class="dropdown-menu">
+                <li><a href="#">빈출자 100</a></li>
+                <li><a href="#">빈출자 200</a></li>
+                <li><a href="#">빈출자 500</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Seperated Link</a></li>
+              </ul>
+            </div>
             <input type="text" placeholder="빈출자 선택" class="form-control"><span class="input-group-btn">
               <button type="button" id="gen1" onclick="generate()" class="btn btn-default">GO</button></span>
           </div>
