@@ -11,16 +11,17 @@ function generate() {
   gt.innerHTML = "";
   var input = document.getElementById('gen2').value;
 
+  var lang = "";
 
 
-  function guessLang (textin) {
-    guessLanguage.detect(textin, function(language) {
+    guessLanguage.detect(input, function(language) {
     console.log('Detected language code of provided text is [' + language + ']');
-    return language;
+    console.log(typeof language);
+    this.lang = language;
+    console.log(typeof lang);
+    console.log(lang);
     });
-  }
 
-    var lang = guessLang(input);
 
   console.log(lang);
   if(lang !== 'eng') {
