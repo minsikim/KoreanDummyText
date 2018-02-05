@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css">
+    <style>body {background-color:#33b57e; align-items:center}</style>
+    <style>body * {font-family:'SpoqaHanSans'; font-weight:700; margin:20px;}</style>
+    <style>form {font-weight:300;}</style>
+    <style>h1 {color:white; border-top: 30px solid rgba(30, 100, 70, 0.2); padding-top:20px;}</style>
+    <style>h4 {color:rgba(240, 232, 65,0.9); font-weight:400; line-height:1.8;}</style>
+    <style>h6 {color:whitesmoke; font-weight:700; line-height:1.5;}</style>
+    <style>.form-control {font-weight:300;}</style>
+    <style>#gentext {color:white; font-weight:400; line-height:1.8;text-align: justify;}</style>
+    <style>.container-fluid {margin:auto;}</style>
+    <style>.input-group {margin:0px;}</style>
+    <!--style .btn-group {margin:0px;}-->
+    <style>.btn.btn-default {font-weight:300; }</style>
+    <style>.minbtn {width:25%; max-width:100px; min-height:10%;}</style>
+    <style>.alert {color:white; font-size:100%; font-weight:700; border-bottom: 10px solid rgba(30, 100, 70, 0.2); padding:0px;}</style>
+    <style>#alert1 {margin-bottom:5px;}</style>
+    <style>#alert2 {margin-top:5px;}</style>
+    <style>b {margin:5px; padding-bottom:-5px; border-bottom:5px solid rgba(255, 255, 255, 0.4);}</style>
+    <script src="js\address.js"></script>
+    <script src="data\ref.json"></script>
+    <script src="lib\guessLanguage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+    <script src="js\gen.js"></script>
+  </head>
+  <body bgcolor="#32cc9d">
+    <div class="container-fluid center-block">
+      <div class="row">
+        <div class="col-md-9 list-inline">
+          <h1>한글 더미 텍스트 생성기</h1>
+          <h4>폰트 디자인 중 <b>디자인이 완료된 문자</b>만을 사용하여 구성된 단어를 추출하기 위해 만들어진 한글 랜덤 텍스트 추출기이다. 추출된 문장은 무의미하다.</h4>
+          <h6>예: '가나다라마바사아자차카타파하'입력 -> '나라 가자 타라 가하다 나가라하다... '생성</h6>
+          <h6 id="alert1" class="alert">*한글(2350자)만 지원됩니다.</h6>
+          <h6 id="alert2" class="alert">*뷁쉟홾 등의 글자는 나타나지 않습니다.</h6>
+          <div role="group" aria-label="..." class="btn-group"><span class="input-group-btn">
+              <button type="button" id="top20" onclick="setInput(this.id)" class="btn btn-default minbtn">상위20<br>빈출차</button>
+              <button type="button" id="top50" onclick="setInput(this.id)" class="btn btn-default minbtn">상위50<br>빈출차</button>
+              <button type="button" id="top100" onclick="setInput(this.id)" class="btn btn-default minbtn">상위100<br>빈출차</button>
+              <button type="button" id="top200" onclick="setInput(this.id)" class="btn btn-default minbtn">상위200<br>빈출차</button></span></div>
+          <div class="input-group">
+            <input type="text" placeholder="추출을 위한 글자를 입력해주세요" id="gen2" class="form-control"><span class="input-group-btn">
+              <button type="button" onclick="generate()" class="btn btn-default">GO</button></span>
+          </div>
+          <div>
+            <p3 id="gentext"> </p3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
