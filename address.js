@@ -1,9 +1,11 @@
 // var a = 'http://localhost/';
-var a = 'C:\\Users\\MinSKim\\Documents\\GitHub\\';
-
-function test(){
-  document.write("Hello");
+var address = {
+  'local' : 'C:\\Users\\MinSKim\\Documents\\GitHub\\',
+  'salinger' : 'http://salinger.ms/'
 }
-function linkCSS(dir) {
-    document.write("<link rel=\"stylesheet\" href=\""+a+dir"\"/>");
-}
+// function test(){
+//   document.write("Hello");
+// }
+// function linkCSS(dir) {
+//     document.write("<link rel=\"stylesheet\" href=\""+a+dir"\"/>");
+// }
