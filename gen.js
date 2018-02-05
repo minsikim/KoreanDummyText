@@ -20,33 +20,80 @@ var arr = JSON.parse(ref);
 //   }
 // }();
 
+
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+function setInput(clicked_id) {
+  var result;
+  switch (clicked_id) {
+    case 'top20':
+      result = pre.top20;
+      break;
+    case 'top50':
+      result = pre.top50;
+      break;
+    case 'top100':
+      result = pre.top100;
+      break;
+    case 'top200':
+      result = pre.top200;
+      break;
+    default:
+      result = pre.top20;
+      break;
+  }
+  document.getElementById('gen2').value = result;
+}
+
 
 function generate() {
   var gt = document.getElementById('gentext');
   //gt.innerHTML.clear();
   gt.innerHTML = "";
   var input = document.getElementById('gen2').value;
+
+  console.log("before : "+input);
+  //중복제거
+  var viewedInput = [];
+  var toCheck = input.split("");
+  for(var char in toCheck){
+    if(!viewedInput.includes(toCheck[char])){
+      viewedInput.push(toCheck[char]);
+    }
+  }
+  input = viewedInput.join("");
+  console.log("after : "+input);
+
+  //한글확인
   var lang = guessLanguage.detect(input, function(language) {
   console.log('Detected language code of provided text is [' + language + ']');
   return language;
   });
   // console.log(typeof lang);
   // console.log(lang);
-
   if(lang !== 'ko') {
     alert('We do not support languages other than English.')
     return;
   }
+
+  //최소20자 확인
+  if(input.length<20){
+    alert('최소 20자를 입력해주세요')
+    return;
+  }
+  //input 출력
   var inputArr = input.split('');
   console.log("inputArr : "+inputArr);
   var result = [];
 
-  while(result.length < 100){
+  //100가지 생성 (var result)
+  var count = 0;
+  while(result.length < 150 && count<10000){
     var temp = ref[getRandomInt(0,ref.length)];
-    if(temp){
+    if(temp && temp.length!=1){
       var tempArr = temp.split('');
       var match = true;
 
@@ -59,7 +106,10 @@ function generate() {
         result.push(temp);
       }
     }
+    count++;
   }
+
+
   var count = 0;
   console.log(result + typeof result);
   while(count < 500){
@@ -73,7 +123,6 @@ function generate() {
       gt.innerHTML += s+'. ';
       count++;
     }
-
   }
 
 
